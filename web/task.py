@@ -11,7 +11,7 @@ def run_pdf(name,question):
     data.get_human_summary_data()
     data.get_contract_summary()
     data.get_vars_auth()
-    # data.get_function()
+    data.get_function()
     data.save()
     return True
 
@@ -20,7 +20,7 @@ def run_html(name,question):
     data.get_human_summary_data()
     data.get_contract_summary()
     data.get_vars_auth()
-    # data.get_function()
+    data.get_function()
     data.save()
     return True
 

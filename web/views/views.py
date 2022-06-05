@@ -62,12 +62,19 @@ def view_download(request,oid):
     filename = str(obj.file).replace(".sol","")
     html_out = str(obj.file).replace(".sol",".html")
     html_data = []
+    out_length = 0
     BASE_DIR = settings.MEDIA_ROOT
     with open( BASE_DIR  / html_out , "r+" ) as pp :
-        for line in pp.readline():
-            html_data.append(line.split("<brspace>"))
+        for line in pp.readlines():
+            out = line.split("<brspace>")
+            out_length = len(out)
+            html_data.append(out[0])
+            html_data.append(out[1])
+            html_data.append(out[2])
+            html_data.append(out[3])
     context = {"file_name":filename,"data":obj,"user":user,
-                    "expire":expire,"html_out":html_data}
+                    "expire":expire,"html_out1":html_data[0],
+                     "html_out2":html_data[1],"html_out3":html_data[2],"html_out4":html_data[3], "length" : out_length}
     return render(request, 'files.html',context=context)
 
 

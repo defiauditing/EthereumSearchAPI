@@ -77,8 +77,9 @@ class HTMLDataExtractor:
         p = subprocess.getoutput(f"slither  {'./files/'+self.name} --print contract-summary --solc-disable-warnings")
         for pp2 in p.split("\n"):
             reg = re.sub(r'\x1b\[[0-9]*m',"",pp2)
-            self.fw.write(f'<div>{reg}</div><brspace>')
+            self.fw.write(f'<div>{reg}</div>')
         # self.fw.add_page()
+        self.fw.write('<brspace>')
 
     def get_vars_auth(self):
         self.data = []
@@ -122,11 +123,11 @@ class HTMLDataExtractor:
                     table_end = 0
             reg = self.changer(reg)
             if  reg :
-                self.fw.write(f'<div>{reg}</div><brspace>')
+                self.fw.write(f'<div>{reg}</div>')
 
         html += body(part_html)
         html = table(html)
-        self.fw.write(html)
+        self.fw.write(html+'<brspace>')
 
     def get_function(self):
         self.data = []
