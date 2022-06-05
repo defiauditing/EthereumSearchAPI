@@ -12,6 +12,8 @@ class Profile(models.Model):
     premium = models.IntegerField(choices=Permium.choices,default=0)
     due_date = models.DateField(null=True)
 
+class Versions(models.Model):
+    name = models.CharField(null=False,blank=False,max_length=12)
 class AnaysisStatus(models.IntegerChoices): #TODO
     PENDING = 1
     COMPLETED = 2

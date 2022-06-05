@@ -30,16 +30,20 @@ def index(request):
 @login_required(login_url="/login")
 def download_file(request, filename=''):
     if filename != '':
-        obj = Analysis.objects.get(file__contains=filename)
-        check_permission(request.user,obj.user)
-        # Define Django project base directory
-        BASE_DIR = settings.MEDIA_ROOT
-        # Define the full file path
-        # print()
-        filename = str(obj.file).replace(".sol",".pdf")
-        filepath = BASE_DIR  / filename
-        # Open the file for reading content
-        path = open(filepath, 'rb')
+        try:
+            obj = Analysis.objects.get(file__contains=filename)
+            check_permission(request.user,obj.user)
+            # Define Django project base directory
+            BASE_DIR = settings.MEDIA_ROOT
+            # Define the full file path
+            # print()
+            filename = str(obj.file).replace(".sol",".pdf")
+            filepath = BASE_DIR  / filename
+            # Open the file for reading content
+
+            path = open(filepath, 'rb')
+        except:
+            return render(request,"index.html",context={"err":True})
         # Set the mime type
         mime_type, _ = mimetypes.guess_type(filepath)
         # Set the return value of the HttpResponse
@@ -64,14 +68,17 @@ def view_download(request,oid):
     html_data = []
     out_length = 0
     BASE_DIR = settings.MEDIA_ROOT
-    with open( BASE_DIR  / html_out , "r+" ) as pp :
-        for line in pp.readlines():
-            out = line.split("<brspace>")
-            out_length = len(out)
-            html_data.append(out[0])
-            html_data.append(out[1])
-            html_data.append(out[2])
-            html_data.append(out[3])
+    try:
+        with open( BASE_DIR  / html_out , "r+" ) as pp :
+            for line in pp.readlines():
+                out = line.split("<brspace>")
+                out_length = len(out)
+                html_data.append(out[0])
+                html_data.append(out[1])
+                html_data.append(out[2])
+                html_data.append(out[3])
+    except:
+        return render(request,"index.html",context={"err":True})
     context = {"file_name":filename,"data":obj,"user":user,
                     "expire":expire,"html_out1":html_data[0],
                      "html_out2":html_data[1],"html_out3":html_data[2],"html_out4":html_data[3], "length" : out_length}
@@ -95,6 +102,7 @@ def upload(request):
         return render(request,"upload.html",context={"form":form,"user":u,"expire":user.due_date})
     file = request.FILES['file']
     data = request.POST
+    print(data)
     ########################Validate Data##########################
     if not data['address'].startswith("0x") :
         context = {"err":"address should start with 0x","form":form}

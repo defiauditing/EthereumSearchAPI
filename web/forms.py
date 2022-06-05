@@ -1,6 +1,7 @@
-from pydoc import classname
+# from pydoc import classname
 from django import forms
 from django.contrib.auth import authenticate
+from web.models import Versions
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=150)
     password = forms.CharField(widget=forms.PasswordInput)
@@ -28,7 +29,7 @@ class UploadForm(forms.Form):
     project = forms.CharField(label="project name" )
     address = forms.CharField(label="contract address")
     blockchain= forms.CharField()
-    version= forms.ChoiceField(label="compiler version",choices=(('0.4.24','0.4.24'),("0.8.0","0.8.0"),("0.7.0","0.7.0"),("0.8.12","0.8.12"),("0.8.2","0.8.2")))
+    version = forms.ModelChoiceField(label="compiler version",queryset=Versions.objects.all().values_list("name",flat=True))
 
     def __init__(self,*args,**kwargs):
         super().__init__()

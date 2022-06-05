@@ -1,5 +1,5 @@
 from django.contrib import admin
-from web.models import Profile , Analysis ,AnaysisStatus
+from web.models import Profile,Versions , Analysis ,AnaysisStatus
 
 # Register your models here.
 class AnalysisAdmin(admin.ModelAdmin):
@@ -39,5 +39,14 @@ class ProfileAdmin(admin.ModelAdmin):
     def due_date(self,obj):
         return obj.due_date
 
+class VersionAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+
+    @admin.display(empty_value="????")
+    def name(self,obj):
+        return obj.name
+
+
 admin.site.register(Profile,ProfileAdmin)
 admin.site.register(Analysis,AnalysisAdmin)
+admin.site.register(Versions,VersionAdmin)

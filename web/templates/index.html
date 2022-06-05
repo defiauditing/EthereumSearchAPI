@@ -6,6 +6,14 @@
 </head>
 <body>
     {% include 'navv.html' %}
+    {% if err %}
+    
+    <div class="m-3 alert alert-danger alert-dismissible fade show" role="alert" align="center">
+        File not found (maybe you select wrong compiler version while upload file)
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      
+    {% endif %}
     <div class="container-fluid">
         <div class="row mt-3">
             <div class="col col-xs-none"></div>
