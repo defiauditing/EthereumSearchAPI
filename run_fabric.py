@@ -1,7 +1,7 @@
 from fabric import Connection 
 from pathlib import Path
 import glob
-x = glob.glob("*.html",root_dir="./web/templates")
+x = glob.glob("*.html","./web/templates")
 print(x)
 c = Connection("34.125.213.99", port=22, user="fady", connect_kwargs={'look_for_keys': False,'key_filename':'priv'})
 for i in x:
