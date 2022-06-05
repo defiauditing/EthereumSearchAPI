@@ -2,7 +2,6 @@
 from fpdf import FPDF ,HTMLMixin
 import subprocess
 import re
-from pathlib import Path
 # from soild import settings
 
 from soild import settings

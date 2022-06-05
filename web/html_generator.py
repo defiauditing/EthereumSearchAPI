@@ -1,5 +1,4 @@
 
-from fpdf import FPDF ,HTMLMixin
 import subprocess
 import re
 from pathlib import Path
@@ -28,7 +27,7 @@ class HTMLDataExtractor:
         self.data_question = data_question
         self.namex = str(name).replace(".sol",".html")
         self.data = []
-        self.fw = open(f"{settings.MEDIA_ROOT / self.namex}","w+")
+        self.fw = open(f"{settings.MEDIA_ROOT / self.namex}","w")
 
 
     def changer(self,line):
