@@ -60,7 +60,14 @@ def view_download(request,oid):
     check_permission(obj.user,request.user)
 
     filename = str(obj.file).replace(".sol","")
-    context = {"file_name":filename,"data":obj,"user":user,"expire":expire}
+    html_out = str(obj.file).replace(".sol",".html")
+    html_data = []
+    BASE_DIR = settings.MEDIA_ROOT
+    with open( BASE_DIR  / html_out , "r+" ) as pp :
+        for line in pp.readline():
+            html_data.append(line.split("<brspace>"))
+    context = {"file_name":filename,"data":obj,"user":user,
+                    "expire":expire,"html_out":html_data}
     return render(request, 'files.html',context=context)
 
 
@@ -98,7 +105,7 @@ def upload(request):
         "version":data['version'],"blockchain":data['blockchain']}\
         )
     context = {"success":"file uploaded successfully.","form":form,"user":u,"expire":user.due_date}
-    
+
     ############# Start Background Job ######################
     switch.apply_async((filename,data['version'],obj.id))
     #########################################################

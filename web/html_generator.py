@@ -26,7 +26,7 @@ class HTMLDataExtractor:
     def __init__(self,name ,data_question):
         self.name = name
         self.data_question = data_question
-        self.namex = str(name).replace(".sol",".pdf")
+        self.namex = str(name).replace(".sol",".html")
         self.data = []
         self.fw = open(f"{settings.MEDIA_ROOT / self.namex}","w+")
 
@@ -69,7 +69,7 @@ class HTMLDataExtractor:
                 part_html += part
         html += body(part_html)
         html = table(html)
-        self.fw.write(html+"<br>")
+        self.fw.write(html+"<brspace>")
         # self.fw.write_html(html)
         # self.fw.add_page()
 
@@ -78,7 +78,7 @@ class HTMLDataExtractor:
         p = subprocess.getoutput(f"slither  {'./files/'+self.name} --print contract-summary --solc-disable-warnings")
         for pp2 in p.split("\n"):
             reg = re.sub(r'\x1b\[[0-9]*m',"",pp2)
-            self.fw.write(f'<div>{reg}</div><br>')
+            self.fw.write(f'<div>{reg}</div><brspace>')
         # self.fw.add_page()
 
     def get_vars_auth(self):
@@ -123,7 +123,7 @@ class HTMLDataExtractor:
                     table_end = 0
             reg = self.changer(reg)
             if  reg :
-                self.fw.write(f'<div>{reg}</div><br>')
+                self.fw.write(f'<div>{reg}</div><brspace>')
 
         html += body(part_html)
         html = table(html)

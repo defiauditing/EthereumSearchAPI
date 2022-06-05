@@ -1,0 +1,2 @@
+celery -A soild worker --detach
+celery -A soild status
