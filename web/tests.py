@@ -28,7 +28,7 @@ def test_template_login_anonymous(API):
 @pytest.mark.django_db
 def test_template_login_already_logged(API):
     user = generate_user()
-    API.force_authenticate(user)
+    API.force_login(user)
     req = API.get("/login/")
     assertTemplateUsed(req,"nindex.html")
 
