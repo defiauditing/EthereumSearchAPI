@@ -2,10 +2,7 @@
 import subprocess
 import re
 from pathlib import Path
-# from soild import settings
-class settings:
-    MEDIA_ROOT = Path(__file__).resolve().parent
-    BASE_DIR = Path(__file__).resolve().parent
+from soild import settings
 
 def subprocess_human_summary(name):
     return subprocess.getoutput(f"slither {'./files/'+name}   --print human-summary --solc-disable-warnings")
