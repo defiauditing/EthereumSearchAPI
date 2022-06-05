@@ -3,10 +3,7 @@ from fpdf import FPDF ,HTMLMixin
 import subprocess
 import re
 from pathlib import Path
-# from soild import settings
-class settings:
-    MEDIA_ROOT = Path(__file__).resolve().parent
-    BASE_DIR = Path(__file__).resolve().parent
+from soild import settings
 
 def subprocess_human_summary(name):
     return subprocess.getoutput(f"slither {'./files/'+name}   --print human-summary --solc-disable-warnings")
@@ -14,27 +11,18 @@ def subprocess_human_summary(name):
 def subprocess_vars_auth(name):
     return subprocess.getoutput(f"slither  {'./files/'+name} --print vars-and-auth --solc-disable-warnings")
 
-def temp_human_summary(data):
-    pass
-def temp_contract_summary(data):
-    pass
-def temp_vars_auth(data):
-    pass
-def temp_function(data):
-    pass
 
 def table(text):
-    for i in range(0,4):
 
-        table = '''<table class="table" width="100%" border="1">'''+text+''''</table>'''
-        
-        yield table
+    table = '''<table class="table" width="100%" border="1">'''+text+''''</table>'''
+    
+    return table
 def head(text):
     return '<thead>'+text+'</thead>'
 def body(text):
     return '<tbody>'+text+'</tbody>'
 
-class DataExtractor:
+class HTMLDataExtractor:
     def __init__(self,name ,data_question):
         self.name = name
         self.data_question = data_question
@@ -147,16 +135,16 @@ class DataExtractor:
         part_html = ''
         table_end = 0
         plus_len = 0
-        p = subprocess.getoutput(f"slither  {'./files/'+self.name} --print function-summary --solc-disable-warnings")
-        p = p.split("\n")
-        for idd,i4 in enumerate(p):
+        p4 = subprocess.getoutput(f"slither  {'./files/'+self.name} --print function-summary --solc-disable-warnings")
+        p4 = p4.split("\n")
+        for idd,i4 in enumerate(p4):
             reg = re.sub(r'\x1b\[[0-9]*m',"",i4)
             if len(reg) > 0  and reg[0] == "+" and table_end == 0 :
                 plus_len = reg.count("+") - 1
                 table_end = 1
             if len(reg) >= 0  and table_end:
-            
-                if reg[0] == "+" and len(p[idd+1]) ==0 :
+                
+                if reg[0] == "+" and len(p4[idd+1]) == 0 :
                     if len(self.data) ==1 :
                         self.data.append(['#' for _ in self.data[0]])
                     for idx,i in enumerate(self.data):
