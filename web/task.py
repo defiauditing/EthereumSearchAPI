@@ -7,7 +7,7 @@ from web.utils import get_object ,  version_installed , switch_current_verison
 from web.pdf_generator import PDFDataExtractor
 from web.html_generator import HTMLDataExtractor
 def run_pdf(name,question):
-    data = PDFDataExtractor("fady-1652350000.sol",{"name":"fady","version":3.2})
+    data = PDFDataExtractor(name,question)
     data.get_human_summary_data()
     data.get_contract_summary()
     data.get_vars_auth()
@@ -16,7 +16,7 @@ def run_pdf(name,question):
     return True
 
 def run_html(name,question):
-    data = HTMLDataExtractor("fady-1652350000.sol",{"name":"fady","version":3.2})
+    data = HTMLDataExtractor(name,question)
     data.get_human_summary_data()
     data.get_contract_summary()
     data.get_vars_auth()
@@ -36,7 +36,8 @@ def switch(filename,ver,oid):
         f"slither {'./files/'+filename} ", stderr=subprocess.STDOUT, shell=True, timeout=120,
         universal_newlines=True)
         except subprocess.CalledProcessError as exc:
-            print("[*] error code  ",exc.returncode)
+            print(exc)
+            print("[*] error code Unknown  ",exc.returncode)
             if str(exc.returncode) not in ["8","59"] :
                 stdout = exc.output 
                 li = re.findall(r'(/[\w\s\-\./]*)',stdout)
