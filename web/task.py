@@ -32,6 +32,7 @@ def switch(filename,ver,oid):
     if switch_current_verison(ver): 
         try:
             print("enter test work")
+            print(filename)
             output = subprocess.check_output(
         f"slither {'./files/'+filename} ", stderr=subprocess.STDOUT, shell=True, timeout=120,
         universal_newlines=True)
