@@ -187,11 +187,11 @@ def running(name,data_question ):
     #################################
     fw.output(f"{settings.MEDIA_ROOT / namex}")
     return True
-#@from html_generator import HTMLDataExtractor
+from html_generator import HTMLDataExtractor
 #@running("fady-1652350000.sol",{"name":"fady","version":3.2})
-#@data = HTMLDataExtractor("fady-1652350000.sol",{"name":"fady","version":3.2})
+data = HTMLDataExtractor("fady-1652350000.sol",{"name":"fady","version":3.2})
 #@data.get_human_summary_data()
 #@data.get_contract_summary()
 #@data.get_vars_auth()
-#@data.get_function()
-#@data.save()
+data.get_function()
+data.save()

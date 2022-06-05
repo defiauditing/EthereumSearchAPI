@@ -2,7 +2,10 @@
 import subprocess
 import re
 from pathlib import Path
-from soild import settings
+# from soild import settings
+class settings:
+    MEDIA_ROOT = Path(__file__).resolve().parent
+    BASE_DIR = Path(__file__).resolve().parent
 
 def subprocess_human_summary(name):
     return subprocess.getoutput(f"slither {'./files/'+name}   --print human-summary --solc-disable-warnings")
@@ -136,6 +139,7 @@ class HTMLDataExtractor:
         table_end = 0
         plus_len = 0
         p4 = subprocess.getoutput(f"slither  {'./files/'+self.name} --print function-summary --solc-disable-warnings")
+        print(p4)
         p4 = p4.split("\n")
         for idd,i4 in enumerate(p4):
             reg = re.sub(r'\x1b\[[0-9]*m',"",i4)
