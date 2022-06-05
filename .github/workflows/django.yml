@@ -22,8 +22,7 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
-      env:
-        KEY: ${{secrets.KEY}}
+
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
@@ -32,5 +31,7 @@ jobs:
       run: |
         pytest 
     - name: Deploy
+      env:
+        KEY: ${{secrets.KEY}}
       run: |
         python run_fabric.py
