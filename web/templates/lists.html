@@ -1,0 +1,49 @@
+<html>
+    <title>Download File</title>
+    {% include 'heads.html' %}
+</head>
+<body>
+    {% include 'navv.html' %}
+<div class="container-fluid">
+    {% for i in data %}
+    <div class="row mb-3 mt-3">
+
+    <style>
+        .start-90 {
+  left: 95% !important;
+}
+    </style>
+    {% for x in i %}
+    <div class="col-md-4 col-xs-12">
+    <div class="card"  >
+        {% if x.status == 0 %}
+        <span class="position-absolute top-0 start-90 translate-middle badge rounded-pill bg-danger">
+            Failed
+            <span class="visually-hidden">unread messages</span>
+          </span>
+          {% elif x.status == 1 %}
+          <span class="position-absolute top-0 start-90 translate-middle badge rounded-pill bg-info">
+            pending
+            <span class="visually-hidden">unread messages</span>
+          </span>
+          {% else %}
+          <span class="position-absolute top-10 start-90 translate-middle badge rounded-pill bg-success">
+            Completed
+            <span class="visually-hidden">unread messages</span>
+          </span>
+          {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ x.data.project }}</h5>
+          <p class="card-text">blockchain:{{x.data.blockchain}}</p>
+          <p class="card-text">version:{{x.data.version}}</p>
+          <a href="{% url 'view_download' oid=x.id %}" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+    </div>
+      {% endfor %}
+
+    </div>
+   {% endfor %}
+</div>
+</body>
+</html>

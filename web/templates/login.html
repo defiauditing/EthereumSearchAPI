@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- To be replaced with your own stylesheet -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css"/> -->
+    <!-- Express fills in the clientId and clientToken variables -->
+     <!-- <script -->
+    <!-- src="https://www.paypal.com/sdk/js?components=buttons,hosted-fields&client-id=<%= clientId %>" -->
+    <!-- data-client-token="<%= clientToken %>" -->
+  <!-- ></script> -->
+  {% include 'heads.html' %}
+
+</head>
+<body class="text-center">
+            
+    <style>
+        html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+    </style>
+            <main class="form-signin">
+              <form action="/login/" method="POST">
+                <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="username" name="username">
+                  <label for="floatingInput">Username</label>
+                </div>
+                <div class="form-floating">
+                  <input type="password" class="form-control" id="password" name="password">
+                  <label for="password">Password</label>
+                </div>
+                {% csrf_token %}
+            
+                <!-- <div class="checkbox mb-3"> -->
+                  <!-- <label> -->
+                    <!-- <input type="checkbox" value="remember-me"> Remember me -->
+                  <!-- </label> -->
+                <!-- </div> -->
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+                <!-- <p class="mt-5 mb-3 text-muted">© 2022–2022</p> -->
+              </form>
+            </main>
+            
+            
+                
+              
+            
+            </body>
+</html>

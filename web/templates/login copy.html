@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- To be replaced with your own stylesheet -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css"/> -->
+    <!-- Express fills in the clientId and clientToken variables -->
+     <!-- <script -->
+    <!-- src="https://www.paypal.com/sdk/js?components=buttons,hosted-fields&client-id=<%= clientId %>" -->
+    <!-- data-client-token="<%= clientToken %>" -->
+  <!-- ></script> -->
+  {% include 'heads.html' %}
+</head>
+<body>
+    {% include 'navv.html' %}
+    <div class="container-fluid">
+        {% if err %}
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-md-8 col-xs-12">
+
+                <div class="alert alert-danger" role="alert" align="center">
+                    {{ err }}
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+        {% endif %}
+        <div class="row ">
+            <div class="col-xs-none col-md-4 "></div>
+            <div class="col-md-3 col-xs-12">
+
+    <!-- <div id="paypal-button-container" class="paypal-button-container"></div> -->
+    <form action="/login/" method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-info w-100" value="Login">
+
+    </form>
+</div>
+<div class="col-xs-none col-md-4"></div>
+</div>
+</div>
+</body>
+</html>

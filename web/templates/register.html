@@ -1,0 +1,116 @@
+<html>
+
+<head>
+    
+    {% include 'heads.html' %}
+</head>
+<body>
+            
+    <style>
+        html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+
+.form-signin input {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+    </style>
+    <div class="container-fluid">
+        {% if err %}
+        <div class="row">
+            <div class="alert alert-danger" role="alert">
+                {{ err }}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if success %}
+        <div class="row">
+            <div class="alert alert-success" role="alert">
+                {{ success }}
+            </div>
+        </div>
+        <script>
+
+        window.setTimeout(function(){
+        
+        // Move to a new location or you can do something else
+        window.location.href = "/login/";
+        
+        }, 3000);
+        </script>
+        {% endif %}
+        <div class="row">
+            <div class="col-xs-none col-md-2 "></div>
+            <div class="col-md-8 col-xs-12">
+
+    <!-- <div id="paypal-button-container" class="paypal-button-container"></div> -->
+    <main class="form-signin">
+        <form  action="/register/" method="post">
+          <h1 class="h3 mb-3 fw-normal" align='center'>Please Register</h1>
+      
+          <div class="form-floating">
+            <input type="text" class="form-control" name="username" id="username" placeholder="johnwilliam">
+            <label for="username">username</label>
+          </div>
+          
+          <div class="form-floating">
+            <input type="email" class="form-control" name="email" id="email" placeholder="example@gmail.com">
+            <label for="email">Email</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+            <label for="password">Password</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" name="password2"  id="password2" placeholder="Password">
+            <label for="password2">Password again</label>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="johnwilliam">
+            <label for="first_name">first name</label>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="johnwilliam">
+            <label for="first_name">last name</label>
+          </div>
+
+          {% csrf_token %}
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+
+        </form>
+      </main>
+
+</div>
+<div class="col-xs-none col-md-2"></div>
+</div>
+</div>
+</body>
+</html>

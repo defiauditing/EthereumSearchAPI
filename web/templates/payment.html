@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include 'heads.html' %}
+</head>
+<body>
+  {% include 'navv.html' %}
+    
+    <div class="row row-cols-1 row-cols-md-2 mb-3 text-center mt-3">
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Free</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>website memembership</li>
+              <li>view old analyzed contracts</li>
+              <li>Priority email support</li>
+            </ul>
+            {% if user.is_authenticated %}
+            <a type="button" class="w-100 btn btn-lg btn-outline-primary" href="/">Sign up for free</a>
+            {% else %}
+            <a type="button" class="w-100 btn btn-lg btn-outline-primary" href="/register" >Sign up for free</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Pro</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">{{amount}}<small class="text-muted fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Unlimited contract upload</li>
+              <li>Unlimited Analysis Contract</li>
+              <li>Priority email support</li>
+            </ul>
+            {{ form }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+</body>
+</html>

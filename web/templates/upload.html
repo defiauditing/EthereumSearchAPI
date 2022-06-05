@@ -1,0 +1,40 @@
+<html>
+        
+<head>
+
+    {% include 'heads.html' %}
+</head>
+<body>
+    {% include 'navv.html' %}
+    <div class="container-fluid">
+        {% if success %}
+        <div class="row">
+            <div class="alert alert-success" role="alert">
+                {{ success }}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if err %}
+        <div class="row">
+            <div class="alert alert-danger" role="alert">
+                {{ err }}
+            </div>
+        </div>
+        {% endif %}
+        <div class="row">
+            <div class="col-xs-none col-md-2 "></div>
+            <div class="col-md-8 col-xs-12">
+
+                <form action="/upload/" method="post"  enctype="multipart/form-data">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-primary w-100" value="submit">
+                    
+                </form>
+            </div>
+            <div class="col-xs-none col-md-2"></div>
+        </div>
+</div>
+</body>
+</html>
