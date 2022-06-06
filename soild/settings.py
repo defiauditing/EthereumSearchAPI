@@ -91,6 +91,7 @@ DATABASES = {
     }
 }
 MEDIA_ROOT   = BASE_DIR / 'files'
+MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = BASE_DIR  /'files'
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
