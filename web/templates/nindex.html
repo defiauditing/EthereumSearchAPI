@@ -14,6 +14,244 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.6/swiper-bundle.min.css" integrity="sha512-trOoBBr/c0fsBG4Yzsw84nudyqyONkrWyyoi6lcJgppKRNL7y8R1crNwB2NAEmwR6A72fcxOtSySFf1Kvie7YQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="{% static '/css/main.css' %}">
+    <style>
+		/* Global */
+:root {
+	--c-dark-deep: #3d3d3d;
+	--c-dark: #303030;
+	--c-dark-light: #E4E7ED;
+	--c-blue: #4D61FC;
+	--c-blue-light: #DFEAFE;
+
+	--fs-xxl: clamp(2rem, 1.848vw + 1.522rem, 3rem);
+	--fs-xl: 32px;
+	--fs-x: 20px;
+	--fs-s: 14px;
+	--fs-xs: 12px;
+}
+
+body {
+	color: var(--c-dark-deep);
+	font-family: 'Lato', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+}
+
+.container {
+	max-width: 1200px;
+}
+
+.fs-xxl {
+	font-size: var(--fs-xxl);
+}
+
+.fs-xl {
+	font-size: var(--fs-xl);
+}
+
+.fs-x {
+	font-size: var(--fs-x);
+}
+
+.fs-s {
+	font-size: var(--fs-s);
+}
+
+.fs-xs {
+	font-size: var(--fs-xs);
+}
+
+
+.bg-dark-light {
+	background-color: var(--c-dark-light);
+}
+
+.btn {
+	font-size: var(--fs-s);
+	font-weight: bold;
+	padding: 16px 30px;
+	transition: 300ms ease;
+}
+
+a {
+	text-decoration: none;
+}
+
+.link {
+	color: var(--c-blue);
+	display: inline-block;
+	font-weight: bold;
+	transition: 300ms ease;
+}
+
+.link svg {
+	transition: 300ms ease;
+}
+
+.btn:hover,
+.link:hover {
+	transform: translateY(-2px);
+}
+
+.link:hover svg {
+	transform: translateX(2px);
+}
+
+.text-box {
+	max-width: 500px;
+}
+
+/* Header */
+.navbar-brand {
+	transition: 300ms ease;
+}
+
+.navbar-brand:hover {
+	opacity: 80%;
+}
+
+.navbar-light .navbar-nav :is(.nav-link, .btn) {
+	color: var(--c-dark);
+	font-size: var(--fs-s);
+	font-weight: bold;
+	transition: 300ms ease;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+	transform: translateY(-2px);
+}
+
+/* Main */
+/* Section One */
+.nav-pills .tab-nav {
+	transition: 300ms ease;
+	max-width: 400px;
+}
+
+.nav-pills .tab-nav:hover {
+	background-color: #DFEAFE;
+	cursor: pointer;
+}
+
+.nav-pills .tab-nav.active {
+	background-color: #E9F1FF;
+	color: #4D61FC;
+}
+
+.nav-pills .tab-nav h2 {
+	font-size: var(--fs-xs);
+}
+
+/* Section Three */
+.section-three figure {
+	position: relative;
+	height: 300px;
+	transition: 300ms ease;
+}
+
+.section-three figure:hover {
+	transform: translateY(-6px);
+}
+
+.section-three img {
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
+	object-position: center top;
+	transition: 2500ms all;
+}
+
+.section-three img:hover {
+	object-position: center;
+}
+
+/* Section Four */
+.section-four {
+	background-image: url("../images/stars.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	isolation: isolate;
+}
+
+.section-four:before {
+	background-color: hsl(0deg 0% 100% / 90%);
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -9;
+}
+
+/* Section Five */
+.section-five {
+	margin-bottom: 100px;
+}
+
+.swiper {
+	min-height: 450px;
+}
+
+.swiper-slide {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.swiper-pagination-bullet {
+	--bullet-size: 20px;
+
+	height: var(--bullet-size);
+	width: var(--bullet-size);
+}
+
+.btn-feedback {
+	background-color: var(--c-blue-light);
+}
+
+.btn-feedback span:first-child {
+	background-color: var(--c-blue);
+}
+
+/* Footer */
+.footer-links li:not(:last-child) {
+	margin-bottom: 12px;
+}
+
+.footer-links a {
+	color: var(--c-dark-deep);
+	font-size: var(--fs-s);
+	transition: 300ms ease;
+}
+
+.footer-links :is(a:hover, a:focus) {
+	color: var(--c-dark-deep);
+	opacity: 70%;
+}
+
+.footer-social-links a {
+	color: var(--c-dark-deep);
+	font-size: var(--fs-x);
+}
+
+.footer-social-links a svg {
+	transition: 300ms ease;
+}
+
+.footer-social-links a:hover svg {
+	transition: 300ms ease;
+	transform: translateY(-2px);
+}
+
+.footer-social-links li:not(:last-child) {
+	margin-right: 12px;
+}
+	</style>
 </head>
 <body>
 	<header>
