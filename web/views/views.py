@@ -152,7 +152,5 @@ def upgrade(request):
             "return_url": request.build_absolute_uri(reverse('paypal-return')),
             "cancel_return": request.build_absolute_uri(reverse('paypal-cancel')),
             "lc": 'EN',
-            "no_shipping": '1', 
-
-        },button_type="subscribe").render()
+            "no_shipping": '1'},button_type="subscribe").render()
     return render(request,"payment.html",context={"form":form,"user":user,"expire":expire,"amount": AMOUNT})                                                                                                                                                                                                                                                                            }
