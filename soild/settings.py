@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os 
 
-AMOUNT = 20 #TODO
+AMOUNT = 599 #TODO
 BEMAIL = "sb-mdcws15128851@business.example.com" #TODO
 NOTIFY ='https://f927-197-63-238-246.ngrok.io/paypal/'
 
