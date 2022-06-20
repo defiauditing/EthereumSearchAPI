@@ -146,7 +146,7 @@ def upgrade(request):
     AMOUNT = 599
 
     form = PayPalPaymentsForm(initial={'item_name':'1 Month subscribe','business':settings.BEMAIL,\
-        "currency_code":"USD","amount":AMOUNT,\
+        "currency_code":"USD","amount":AMOUNT,
                 "invoice":f'{request.user.id}-{int(datetime.timestamp(datetime.now()))}',
                 "notify_url":request.build_absolute_uri(reverse('paypal-ipn')) ,#  'https://f927-197-63-238-246.ngrok.io/paypal/', #TODO 
             "return_url": request.build_absolute_uri(reverse('paypal-return')),
