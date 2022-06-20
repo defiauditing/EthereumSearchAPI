@@ -155,7 +155,7 @@ def upgrade(request):
             "no_shipping": '1', 
 
         },button_type="subscribe").render()
-    return render(request,"payment.html",context={"form":form,"user":user,"expire":expire,"amount":
+    return render(request,"payment.html",context={"form":form,"user":user,"expire":expire,"amount"})
                                                  
                                                  
                                                  
