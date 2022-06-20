@@ -143,14 +143,15 @@ def list_uploads(request):
 def upgrade(request):
     user= request.user
     expire=Profile.objects.get(user=user).due_date
-    AMOUNT = 599
 
     form = PayPalPaymentsForm(initial={'item_name':'1 Month subscribe','business':settings.BEMAIL,\
-        "currency_code":"USD","amount":AMOUNT,
+        "currency_code":"USD","amount":settings.AMOUNT,\
                 "invoice":f'{request.user.id}-{int(datetime.timestamp(datetime.now()))}',
                 "notify_url":request.build_absolute_uri(reverse('paypal-ipn')) ,#  'https://f927-197-63-238-246.ngrok.io/paypal/', #TODO 
             "return_url": request.build_absolute_uri(reverse('paypal-return')),
             "cancel_return": request.build_absolute_uri(reverse('paypal-cancel')),
             "lc": 'EN',
-            "no_shipping": '1'},button_type="subscribe").render()
-    return render(request,"payment.html",context={"form":form,"user":user,"expire":expire,"amount": AMOUNT})                                                                                                                                                                                                                                                                            }
+            "no_shipping": '1', 
+
+        },button_type="subscribe").render()
+    return render(request,"payment.html",context={"form":form,"user":user,"expire":expire,"amount":settings.AMOUNT})
