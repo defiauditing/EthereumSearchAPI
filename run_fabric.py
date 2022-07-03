@@ -8,7 +8,7 @@ c = Connection("34.125.213.99", port=22, user="fady", connect_kwargs={'look_for_
 for i in x:
     out =i.split("/")[-1]
     c.put(f"{i}",f"/home/fady/soild/web/templates/{out}")
-res = c.run("gcloud auth login")
+res = c.run("gcloud config set account `fady`")
 res = c.run("gcloud app deploy")
 res = c.run("sudo service uwsgi restart")
 res = c.run("sudo service nginx restart")
