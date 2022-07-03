@@ -36,7 +36,7 @@ def show_me_the_money(sender, **kwargs):
         if ipn_obj.custom == "premium_plan":
             price = 222
         else:
-            price = settings.AMOUNT
+            price = 100
 
         if ipn_obj.mc_gross == price and ipn_obj.mc_currency == 'USD':
             print("correct pro")
