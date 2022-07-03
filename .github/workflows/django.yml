@@ -31,4 +31,6 @@ jobs:
         pytest 
     - name: Deploy
       run: |
+        python manage.py makemigrations
+        python manage.py migrate
         python run_fabric.py
