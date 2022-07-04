@@ -11,3 +11,4 @@ res = c.run("sudo service nginx restart")
 res = c.run("sudo gcloud auth login --no-browser")
 res = c.run("sudo gcloud app deploy --log-http --verbosity=debug")
 print("Done")
+
