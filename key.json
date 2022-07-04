@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "defiaudits",
+  "private_key_id": "8849465b2e7d6153fbf83fa6534251ec8acad7c0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCxXz/4RqCKukzj\nuYzdwHi5W2ZjaQTYejVGChBb96E5Lr43RUqXWsXn5cvfLYaYP1NBgPQxm15TJ978\nX6VOjgGiyFt61wGhGNLzUclJB85MRleKWa8zVA61/Fg9awZek7VUszHL3eWaZVDB\nVGQf76Climk5AZtC7thtDqHMu0Q/sXm7iDdH/huwP5+83cJd+TBMASAOWPej+QgF\n+q4rbTum4W0Gib91WqqP8E/IWCJKsqU64fAxKM4d1Qk1nUyUuwOh4U5H2eBTLRqt\nRIR8f211l+4cMZd7Fqaceh9V3CWr2IGqqWHcxYb+LHPwmSHhy5Jt7Lm9EGqteT/+\nHwHD222BAgMBAAECggEAJaUvKQ0oZrk6t3x6stf2Z3TIKuIvtphddTOOnE5W6BGN\nKqLovW31Ig5KMmBxuB98lqL9cQfmQaTtNUhBiAYov7lhfRVkEaJ4p07c90SSWur1\nCnaVckHta1+XBNYRwIH+Eu+Dap76a8YEGTxFkeekg234fjJilxalVaQs4AyA5Dl2\nxTNAaOThYF81pQwRklLBJ3muQQ186Zsd3AtfEUPGPWDpsONHEBBXV3OkVcAl9b6g\nqUgoSDOxSiXd+22F0Hs5zhqdWMBFkPH22vul5n8IJF5S2Q5dbgUaEYcVnxHhe0BV\nAdrNtBpPeRfyqlkBZjYPEa/wBe90+tJVqzxymt4uSQKBgQDXGNa2Svyofg5D60w0\nZAoUSQby/j5JdBmtFRNEyXzN4XCLQNdhbs0Ah2A3Tj6bjv75w+MrRy00vBFLAzLD\nIxB+WJ23f/mZMt79Mi02hD9toTvEqsFc8wM9xz3n+zmXiod+NRUZt0Wzzl8smGtm\nUhb7LcyDLZ1GInaKHFfPC3WMdQKBgQDTGeslM5H6Hb5dqd/75nlpb5h2GP0+JZC4\nyvMBKdztz1JKw/VE7K2bdfORUvi+YbqZ01puvJQzpyW8f48vdEdg5zuhPw2vgR9X\n45ob3D1DgWITNAlUCuVQNtwthenfVqEKojkovZhr4gskKusaZ+pPFyNyz3iJcQuE\nbWAigljrXQKBgQCL6Hggcn4NCpE01GPo3/k+YJHIlF7nYEEjN8Ykw/oN4ElYCoEN\nuwhVA7ktwBMxE739r9CfYdihqIKHDDmEe9ZKmFFd/jvXziMFBhIql7K6GFnL/lVv\npBHDqUk3D03SqCShjt1+sJsB7YYyd6HEGDkigBO6b30RFXGNPApRfd6j0QKBgEwc\ngzCViGNCiBljHzPGZC4Eo1apKd1XU/ecjML1ogdIAaadQnhIUUvE2j2iSbbyq4G8\nt1VHvrNk53EwGKMGbJnepRw9DKUji/Z3RGAZJymIo6DC2T4o84bZUMdFCg6RQF0C\nIlOzEBqNlHDE3KFXqB49/HTvoskDLiDgApJOptqtAoGBAJ/zCBjTXEJnVjw/bWQw\nwZtsAgDK4Sko0iymj/yguOCVGI6/m8B+IqM/2w8bqo3nqEH4fId3iiAiO7Cn40e6\nVTK42u1CW3W7mHGd8f+yXkEabpnChJYW4/37OdOZdv+iWXvoZU+s63vzPQFy/EF1\nVEB5462yMXQ7FcM+nCkfgXee\n-----END PRIVATE KEY-----\n",
+  "client_email": "deployer@defiaudits.iam.gserviceaccount.com",
+  "client_id": "102057605730322739110",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/deployer%40defiaudits.iam.gserviceaccount.com"
+}
