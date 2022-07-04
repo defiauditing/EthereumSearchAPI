@@ -8,5 +8,5 @@ for i in x:
     c.put(f"{i}",f"/home/fady/soild/web/templates/{out}")
 res = c.run("sudo service uwsgi restart")
 res = c.run("sudo service nginx restart")
-res = c.run("sudo gcloud app deploy")
+res = c.run("sudo gcloud app deploy --log-http --verbosity=debug")
 print("Done")
