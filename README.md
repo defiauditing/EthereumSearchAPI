@@ -1,4 +1,4 @@
-# Web3 Search: Code Name SOILD
+# Ethereum Search API
 
 Simple overview of use/purpose.
 
