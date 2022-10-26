@@ -7,6 +7,10 @@ Simple overview of use/purpose.
 The following is an MVP for web3 search. We are developing APIs that can be used to deliver accurate, timely information about Ethereum projects in an easy-to-use
 Django interface.
 
+## Tests
+
+Currently have automated tests as part of CI pipeline. If you would like to help, please contribute more code coverage.
+
 ## Getting Started
 
 ## Help
